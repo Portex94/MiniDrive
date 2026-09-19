@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MiniDrive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Librairies pour les aperçus -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+</head>
+
+<body class="theme-light">
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">▢</span>
+        <span class="logo-text">MiniDrive</span>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="btn secondary">🌙 / ☀️</button>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="app-body">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <button id="btnNewUpload" class="btn primary full">+ Téléverser</button>
+        <button id="btnNewFolder" class="btn secondary full">+ Nouveau dossier</button>
+        <button id="btnNewDoc" class="btn secondary full">+ Nouveau document</button>
+
+        <div class="sidebar-section">
+          <h3>Navigation</h3>
+          <ul>
+            <li class="nav-item active" data-view="my-drive">Mon Drive</li>
+            <li class="nav-item" data-view="recent">Récents</li>
+            <li class="nav-item" data-view="trash">Corbeille</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Dossiers</h3>
+          <ul id="folderList"></ul>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <!-- TOOLBAR -->
+        <div class="toolbar">
+          <div class="breadcrumbs" id="breadcrumbs">Mon Drive</div>
+          <div class="toolbar-actions">
+            <button id="btnGenerateReport" class="btn secondary">Générer rapport</button>
+            <button id="btnGenerateInvoice" class="btn secondary">Générer facture</button>
+          </div>
+        </div>
+
+        <!-- FILE AREA -->
+        <section class="file-area">
+          <div class="file-list-header">
+            <span>Nom</span>
+            <span>Type</span>
+            <span>Modifié</span>
+            <span>Actions</span>
+          </div>
+
+          <div id="fileList" class="file-list"></div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- INPUT FICHIER -->
+    <input type="file" id="fileInput" multiple style="display:none" />
+
+  </div>
+
+  <!-- MODAL APERÇU / EDITEUR -->
+  <div id="previewModal" class="preview-modal hidden">
+    <div class="preview-content">
+      <div class="preview-header">
+        <span id="previewTitle"></span>
+        <div class="preview-buttons">
+          <button id="previewSave" class="btn primary hidden">Enregistrer</button>
+          <button id="previewClose" class="btn secondary close-btn">Fermer</button>
+        </div>
+      </div>
+      <div id="previewContainer"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/app.js"></script>
